@@ -1,28 +1,31 @@
 fileFormatVersion: 2
-guid: 8482cc10c037d2846a26e45ca1a26d7b
+guid: 4a884c586ce82c047957244b940d41a0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 440004201269631737
-    second: BrickDestroy_0
+      213: 9073444749831280770
+    second: backgraound_0
   - first:
-      213: 6428096427953393541
-    second: BrickDestroy_1
+      213: -8490907242112470420
+    second: backgraound_1
   - first:
-      213: 8603011222089355523
-    second: BrickDestroy_2
+      213: 8678712687892091332
+    second: backgraound_2
   - first:
-      213: 2274631966701665123
-    second: BrickDestroy_3
+      213: -7394224434351545179
+    second: backgraound_3
   - first:
-      213: -5598041726246172800
-    second: BrickDestroy_4
+      213: 6074616181351629786
+    second: backgraound_4
   - first:
-      213: -5070355926835817348
-    second: BrickDestroy_5
+      213: 1831830962329792286
+    second: backgraound_5
   - first:
-      213: -5028786312047504514
-    second: BrickDestroy_6
+      213: -8713750916009719357
+    second: backgraound_6
+  - first:
+      213: 2960232954683430490
+    second: backgraound_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -86,11 +89,11 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -106,7 +109,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,7 +122,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -131,7 +134,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BrickDestroy_0
+      name: backgraound_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,147 +142,147 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9fa1b546d753b1600800000000000000
-      internalID: 440004201269631737
+      spriteID: 28893d24de95bed70800000000000000
+      internalID: 9073444749831280770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrickDestroy_1
+      name: backgraound_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 17
         y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 58f8e1ac4af253950800000000000000
-      internalID: 6428096427953393541
+      spriteID: c62381d99dc3a2a80800000000000000
+      internalID: -8490907242112470420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrickDestroy_2
+      name: backgraound_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 34
         y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 301d5533029046770800000000000000
-      internalID: 8603011222089355523
+      spriteID: 4c1db75353bf07870800000000000000
+      internalID: 8678712687892091332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrickDestroy_3
+      name: backgraound_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 51
         y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 36b3002e8bd119f10800000000000000
-      internalID: 2274631966701665123
+      spriteID: 5a466f0ad00726990800000000000000
+      internalID: -7394224434351545179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrickDestroy_4
+      name: backgraound_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 68
         y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 087484da5b2cf42b0800000000000000
-      internalID: -5598041726246172800
+      spriteID: ad3cd447b3f5d4450800000000000000
+      internalID: 6074616181351629786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrickDestroy_5
+      name: backgraound_5
       rect:
         serializedVersion: 2
-        x: 80
+        x: 85
         y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c749720062a72a9b0800000000000000
-      internalID: -5070355926835817348
+      spriteID: e1faa360e88fb6910800000000000000
+      internalID: 1831830962329792286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrickDestroy_6
+      name: backgraound_6
       rect:
         serializedVersion: 2
-        x: 96
+        x: 102
         y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e73df0b2e79263ab0800000000000000
-      internalID: -5028786312047504514
+      spriteID: 3c9810695b9821780800000000000000
+      internalID: -8713750916009719357
       vertices: []
       indices: 
       edges: []
@@ -288,7 +291,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: a24e2eac86ea52a44a6182368718441f
     internalID: 0
     vertices: []
     indices: 
@@ -298,13 +301,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BrickDestroy_0: 440004201269631737
-      BrickDestroy_1: 6428096427953393541
-      BrickDestroy_2: 8603011222089355523
-      BrickDestroy_3: 2274631966701665123
-      BrickDestroy_4: -5598041726246172800
-      BrickDestroy_5: -5070355926835817348
-      BrickDestroy_6: -5028786312047504514
+      backgraound_0: 9073444749831280770
+      backgraound_1: -8490907242112470420
+      backgraound_2: 8678712687892091332
+      backgraound_3: -7394224434351545179
+      backgraound_4: 6074616181351629786
+      backgraound_5: 1831830962329792286
+      backgraound_6: -8713750916009719357
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
