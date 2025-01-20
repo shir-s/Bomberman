@@ -187,28 +187,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Bomb_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbcdac83bc99ee5b0800000000000000
-      internalID: -5337159410277229379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -226,7 +204,6 @@ TextureImporter:
       Bomb_0: -1483665779731714255
       Bomb_1: -1902917897002446259
       Bomb_2: -5839540051515997725
-      Bomb_3: -5337159410277229379
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
