@@ -275,15 +275,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: allsprites
+      name: top_up2
       rect:
         serializedVersion: 2
         x: 32
         y: 223
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 1.4067135, y: 0.54217434}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -319,7 +319,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_2
+      name: top_up0
       rect:
         serializedVersion: 2
         x: 32
@@ -341,7 +341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_3
+      name: mid_right0
       rect:
         serializedVersion: 2
         x: 48
@@ -363,7 +363,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_4
+      name: top_right0
       rect:
         serializedVersion: 2
         x: 64
@@ -385,7 +385,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_5
+      name: mid_down0
       rect:
         serializedVersion: 2
         x: 32
@@ -407,7 +407,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_6
+      name: top_down0
       rect:
         serializedVersion: 2
         x: 32
@@ -429,7 +429,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_7
+      name: mid_left0
       rect:
         serializedVersion: 2
         x: 16
@@ -451,7 +451,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_9
+      name: top_left0
       rect:
         serializedVersion: 2
         x: 0
@@ -539,7 +539,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_11
+      name: mid_up3
       rect:
         serializedVersion: 2
         x: 112
@@ -561,7 +561,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_12
+      name: top_up3
       rect:
         serializedVersion: 2
         x: 112
@@ -583,7 +583,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_13
+      name: top_down1
       rect:
         serializedVersion: 2
         x: 112
@@ -605,7 +605,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_14
+      name: mid_down1
       rect:
         serializedVersion: 2
         x: 112
@@ -627,7 +627,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_15
+      name: mid_up2
       rect:
         serializedVersion: 2
         x: 32
@@ -649,7 +649,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_16
+      name: top_left1
       rect:
         serializedVersion: 2
         x: 80
@@ -671,7 +671,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_17
+      name: mid_left1
       rect:
         serializedVersion: 2
         x: 96
@@ -693,7 +693,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_18
+      name: mid_up1
       rect:
         serializedVersion: 2
         x: 112
@@ -715,7 +715,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_19
+      name: top_up1
       rect:
         serializedVersion: 2
         x: 112
@@ -737,7 +737,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_20
+      name: mid_right1
       rect:
         serializedVersion: 2
         x: 128
@@ -759,7 +759,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_21
+      name: top_right1
       rect:
         serializedVersion: 2
         x: 144
@@ -781,7 +781,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_22
+      name: mid_left3
       rect:
         serializedVersion: 2
         x: 96
@@ -803,7 +803,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_23
+      name: top_left3
       rect:
         serializedVersion: 2
         x: 80
@@ -825,7 +825,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_24
+      name: top_right2
       rect:
         serializedVersion: 2
         x: 64
@@ -847,7 +847,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_25
+      name: mid_right2
       rect:
         serializedVersion: 2
         x: 48
@@ -869,7 +869,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_26
+      name: mid_left2
       rect:
         serializedVersion: 2
         x: 16
@@ -891,7 +891,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_27
+      name: top_left2
       rect:
         serializedVersion: 2
         x: 0
@@ -913,7 +913,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_28
+      name: mid_down2
       rect:
         serializedVersion: 2
         x: 32
@@ -935,7 +935,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_29
+      name: top_down2
       rect:
         serializedVersion: 2
         x: 32
@@ -957,7 +957,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_30
+      name: mid_down3
       rect:
         serializedVersion: 2
         x: 112
@@ -979,7 +979,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_31
+      name: top_down3
       rect:
         serializedVersion: 2
         x: 112
@@ -1001,7 +1001,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_32
+      name: mid_right3
       rect:
         serializedVersion: 2
         x: 128
@@ -1023,7 +1023,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_33
+      name: top_right3
       rect:
         serializedVersion: 2
         x: 144
@@ -1045,7 +1045,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_sprites_8
+      name: mid_up0
       rect:
         serializedVersion: 2
         x: 32
@@ -1351,38 +1351,12 @@ TextureImporter:
       all_sprites_0: 381138675
       all_sprites_1: -1469217261
       all_sprites_10: -301432712
-      all_sprites_11: -986658452872510482
-      all_sprites_12: -3634911239504825345
-      all_sprites_13: -1484524281993343409
-      all_sprites_14: -3006777563765983613
-      all_sprites_15: -727202023266497119
-      all_sprites_16: 2545548283816382879
-      all_sprites_17: 8146836715302205907
-      all_sprites_18: 2043340092111801341
-      all_sprites_19: 2395605326891620258
-      all_sprites_2: -2167246193501262641
-      all_sprites_20: -1122940450645771417
-      all_sprites_21: -4170578678082550359
-      all_sprites_22: 4672969660444902858
-      all_sprites_23: -5223142507583586892
-      all_sprites_24: -3629645635209725840
-      all_sprites_25: 2427502518240827300
-      all_sprites_26: 6715811793525096066
-      all_sprites_27: -886681482899794440
-      all_sprites_28: 7463222031718396724
-      all_sprites_29: -8653170293494551706
-      all_sprites_3: -2188733288970017409
-      all_sprites_30: 3887024083076565354
-      all_sprites_31: 3617580697758835040
-      all_sprites_32: 8768532645190073533
-      all_sprites_33: 8464461970624103288
       all_sprites_34: 6352800550842653361
       all_sprites_35: -583650439190752577
       all_sprites_36: -6293680017446817790
       all_sprites_37: -7324740470845555897
       all_sprites_38: 4768616454370291866
       all_sprites_39: -8974333723394021226
-      all_sprites_4: 4197634691617139032
       all_sprites_40: 2262532459165021604
       all_sprites_41: -6171832076109342413
       all_sprites_42: 2552997439099660226
@@ -1393,17 +1367,43 @@ TextureImporter:
       all_sprites_47: -2892669797809270690
       all_sprites_48: 6591612085778554168
       all_sprites_49: 80020161558140604
-      all_sprites_5: -8028652018437066685
       all_sprites_50: 7632135596484005483
       all_sprites_51: -1715345456745944653
       all_sprites_52: -3988257388638459111
       all_sprites_53: 9145738544244181991
       all_sprites_54: -7434718674223935388
-      all_sprites_6: 5758443824745823603
-      all_sprites_7: 5901797418417055735
-      all_sprites_8: -9167533531541273043
-      all_sprites_9: 5739585250720708065
-      allsprites: 2802884636977924843
+      mid_down0: -8028652018437066685
+      mid_down1: -3006777563765983613
+      mid_down2: 7463222031718396724
+      mid_down3: 3887024083076565354
+      mid_left0: 5901797418417055735
+      mid_left1: 8146836715302205907
+      mid_left2: 6715811793525096066
+      mid_left3: 4672969660444902858
+      mid_right0: -2188733288970017409
+      mid_right1: -1122940450645771417
+      mid_right2: 2427502518240827300
+      mid_right3: 8768532645190073533
+      mid_up0: -9167533531541273043
+      mid_up1: 2043340092111801341
+      mid_up2: -727202023266497119
+      mid_up3: -986658452872510482
+      top_down0: 5758443824745823603
+      top_down1: -1484524281993343409
+      top_down2: -8653170293494551706
+      top_down3: 3617580697758835040
+      top_left0: 5739585250720708065
+      top_left1: 2545548283816382879
+      top_left2: -886681482899794440
+      top_left3: -5223142507583586892
+      top_right0: 4197634691617139032
+      top_right1: -4170578678082550359
+      top_right2: -3629645635209725840
+      top_right3: 8464461970624103288
+      top_up0: -2167246193501262641
+      top_up1: 2395605326891620258
+      top_up2: 2802884636977924843
+      top_up3: -3634911239504825345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

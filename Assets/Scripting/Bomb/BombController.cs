@@ -3,28 +3,17 @@ using UnityEngine;
 using System.Collections;
 public class BombController : MonoBehaviour
 {
+    [Header("Bomb")]
     public KeyCode inputKey = KeyCode.Space;
     [SerializeField] private float explosionDelay = 3f; // זמן פיצוץ
     [SerializeField] private int bombAmount = 1;
     [SerializeField] private GameObject bombPrefab;
-    private int bombRemaining; 
+    private int bombRemaining;
     
-    // private PlayerController playerController;
-    // private Grid grid;
-
-    // private void Awake()
-    // {
-    //     playerController = FindObjectOfType<PlayerController>();
-    //     if (playerController == null)
-    //     {
-    //         Debug.LogError("PlayerController not found!");
-    //     }
-    //     grid = FindObjectOfType<Grid>();
-    //     if (grid == null)
-    //     {
-    //         Debug.LogError("Grid not found!");
-    //     }
-    // }
+    [Header("Explosion")]
+    public Explosion explosionPrefab;
+    public float explosionDuration = 1f;
+    public int explosionRadius = 1;
     
     private void OnEnable()
     {
@@ -54,11 +43,17 @@ public class BombController : MonoBehaviour
         bomb.transform.position = position;
         bomb.gameObject.SetActive(true); 
         bombRemaining--;
-        
-        // GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);
-        // bombRemaining--;
 
         yield return new WaitForSeconds(explosionDelay);
+        
+        //Adding the Explosion
+        position = bomb.transform.position;
+        position.x = Mathf.Round(position.x);
+        position.y = Mathf.Round(position.y);
+        Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+        explosion.SetActiveRenderer(explosion.start);
+        Debug.Log("setactive explosion pos"); 
+        Destroy(explosion.gameObject, explosionDuration);
         
         bomb.ReturnToPool();
         bombRemaining++;
