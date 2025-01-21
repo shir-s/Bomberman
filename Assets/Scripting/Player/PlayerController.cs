@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Transform centerPoint;
+    public Transform CenterPoint => centerPoint;
     private Vector2 moveInput;
     private Rigidbody2D rb;
     private Animator animator;

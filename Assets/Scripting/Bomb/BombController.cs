@@ -1,47 +1,81 @@
+using System;
 using UnityEngine;
-
+using System.Collections;
 public class BombController : MonoBehaviour
 {
+    public KeyCode inputKey = KeyCode.Space;
     [SerializeField] private float explosionDelay = 3f; // זמן פיצוץ
-    [SerializeField] private int maxBombs = 1; // כמות הפצצות המקסימלית שהשחקן יכול להניח
-    private int currentBombs = 0; // כמות הפצצות הפעילות שהשחקן הניח כרגע
+    [SerializeField] private int bombAmount = 1;
+    [SerializeField] private GameObject bombPrefab;
+    private int bombRemaining; 
+    
+    // private PlayerController playerController;
+    // private Grid grid;
 
-    private void Update()
+    // private void Awake()
+    // {
+    //     playerController = FindObjectOfType<PlayerController>();
+    //     if (playerController == null)
+    //     {
+    //         Debug.LogError("PlayerController not found!");
+    //     }
+    //     grid = FindObjectOfType<Grid>();
+    //     if (grid == null)
+    //     {
+    //         Debug.LogError("Grid not found!");
+    //     }
+    // }
+    
+    private void OnEnable()
     {
-        // בדיקת קלט להנחת פצצה
-        if (Input.GetKeyDown(KeyCode.X) && currentBombs < maxBombs)
+        bombRemaining = bombAmount;
+    }
+
+    private void Update() 
+    {
+        if (bombRemaining > 0 && Input.GetKeyDown(inputKey))
         {
-            PlaceBomb();
+            StartCoroutine(DropBomb());
         }
     }
-
-    private void PlaceBomb()
+    
+    private IEnumerator DropBomb()
     {
-        // קבלת פצצה מה-Pool
-        Bomb bomb = BombPool.Instance.Get();
+        Vector2 position = transform.position;
+        position.x = Mathf.Round(position.x);
+        position.y = Mathf.Round(position.y);
+        
+        Bomb bomb = MonoPool<Bomb>.Instance.Get();
+        if (bomb == null)
+        {
+            Debug.LogError("No bomb available in the pool!");
+            yield break;
+        }
+        bomb.transform.position = position;
+        bomb.gameObject.SetActive(true); // הפעלת הפצצה
+        bombRemaining--;
+        
+        // GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);
+        // bombRemaining--;
 
-        // מיקום הפצצה: מיקום השחקן
-        bomb.transform.position = transform.position;
-
-        // הפעלת הפצצה
-        bomb.Activate(explosionDelay, OnBombExploded);
-
-        // עדכון כמות הפצצות הפעילות
-        currentBombs++;
+        yield return new WaitForSeconds(explosionDelay);
+        
+        bomb.ReturnToPool();
+        bombRemaining++;
     }
 
-    private void OnBombExploded(Bomb bomb)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        // החזרת הפצצה ל-Pool
-        BombPool.Instance.Return(bomb);
-
-        // עדכון כמות הפצצות הפעילות
-        currentBombs--;
+        if(other.gameObject.layer == LayerMask.NameToLayer("Bomb"))
+        {
+            other.isTrigger = false;
+            // StartCoroutine(DisableTriggerAfterDelay(other));
+        }
     }
-
-    public void IncreaseMaxBombs()
+    
+    private IEnumerator DisableTriggerAfterDelay(Collider2D collider)
     {
-        maxBombs++; // הגדלת כמות הפצצות המקסימלית
-        Debug.Log($"Max bombs increased to {maxBombs}");
+        yield return new WaitForSeconds(2f);
+        collider.isTrigger = false;
     }
 }
