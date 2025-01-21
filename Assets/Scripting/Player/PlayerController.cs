@@ -4,8 +4,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private Transform centerPoint;
-    public Transform CenterPoint => centerPoint;
     private Vector2 moveInput;
     private Rigidbody2D rb;
     private Animator animator;
@@ -35,13 +33,15 @@ public class PlayerController : MonoBehaviour
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        UpdateAnimation(moveInput); //uptade the animation
+        UpdateAnimation(moveInput);
+        animator.speed = 1f;
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
         moveInput = Vector2.zero;
         UpdateAnimation(moveInput);
+        animator.speed = 0f;
     }
 
     // private void UpdateAnimation(Vector2 direction)
