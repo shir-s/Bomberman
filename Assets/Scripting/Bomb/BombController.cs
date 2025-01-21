@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Tilemaps;
 public class BombController : MonoBehaviour
 {
     [Header("Bomb")]
@@ -15,6 +16,10 @@ public class BombController : MonoBehaviour
     public LayerMask explosionLayerMask;
     public float explosionDuration = 1f;
     public int explosionRadius = 1;
+
+    [Header("BricksExplosion")] [SerializeField]
+    public Tilemap bricksOnTilemap;
+    private BricksExplosion bricksPrefab;
     
     private void OnEnable()
     {
@@ -84,6 +89,7 @@ public class BombController : MonoBehaviour
 
         if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionLayerMask))
         {
+            RemoveBrick(position);
             return;
         }
         
@@ -93,5 +99,16 @@ public class BombController : MonoBehaviour
         Destroy(explosion.gameObject, explosionDuration);
         
         Explode(position, direction, length - 1);
+    }
+    
+    private void RemoveBrick(Vector2 position)
+    {
+        Vector3Int cell = bricksOnTilemap.WorldToCell(position);
+        TileBase tile = bricksOnTilemap.GetTile(cell);
+        if (tile != null)
+        {
+            Instantiate(bricksPrefab, position, Quaternion.identity);
+            bricksOnTilemap.SetTile(cell, null);
+        }
     }
 }
