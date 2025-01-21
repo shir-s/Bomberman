@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Move.performed += OnMovePerformed;
         inputActions.Player.Move.canceled += OnMoveCanceled;
         inputActions.Enable();
+        animator.speed = 0f;
     }
 
     private void OnDisable()

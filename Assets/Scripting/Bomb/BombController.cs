@@ -52,7 +52,7 @@ public class BombController : MonoBehaviour
             yield break;
         }
         bomb.transform.position = position;
-        bomb.gameObject.SetActive(true); // הפעלת הפצצה
+        bomb.gameObject.SetActive(true); 
         bombRemaining--;
         
         // GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);

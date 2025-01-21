@@ -4,7 +4,8 @@ using UnityEngine;
 public class Bomb : MonoBehaviour, IPoolable
 {
     private Collider2D _collider;
-    private System.Action<Bomb> onExploded; // פעולה שתופעל כאשר הפצצה מתפוצצת
+    private System.Action<Bomb> onExploded;
+    private Animation _animation;
 
     private void OnEnable()
     {
@@ -21,8 +22,9 @@ public class Bomb : MonoBehaviour, IPoolable
     public void Activate(float delay, System.Action<Bomb> onExplodedCallback)
     {
         gameObject.SetActive(true);
-        onExploded = onExplodedCallback; // שמירת הפעולה שתופעל בזמן הפיצוץ
-        Invoke(nameof(Explode), delay); // הגדרת זמן לפיצוץ
+        _animation.Play();
+        onExploded = onExplodedCallback;
+        Invoke(nameof(Explode), delay);
     }
 
     private void Explode()
