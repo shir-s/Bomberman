@@ -19,7 +19,7 @@ public class BombController : MonoBehaviour
 
     [Header("BricksExplosion")] [SerializeField]
     public Tilemap bricksOnTilemap;
-    private BricksExplosion bricksPrefab;
+    public BricksExplosion bricksPrefab;
     
     private void OnEnable()
     {

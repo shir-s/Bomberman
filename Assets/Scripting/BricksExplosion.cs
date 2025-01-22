@@ -1,16 +1,12 @@
+using System;
 using UnityEngine;
 
 public class BricksExplosion : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float explosionTime = 1f;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        Destroy(gameObject, explosionTime);
     }
 }
