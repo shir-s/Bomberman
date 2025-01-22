@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionTime: 1
-  itemSpawnAmount: 0.554
+  itemSpawnAmount: 0.07
   itemsToSpawn:
   - {fileID: 478324535319603426, guid: d7a4c2d1d7ea2764f93a28fa14fbc12b, type: 3}
   - {fileID: 7316404502949727819, guid: 142cc9af6643b9e478816180c28d661a, type: 3}
