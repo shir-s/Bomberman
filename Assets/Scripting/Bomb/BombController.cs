@@ -7,7 +7,7 @@ public class BombController : MonoBehaviour
     [Header("Bomb")]
     public KeyCode inputKey = KeyCode.Space;
     [SerializeField] private float explosionDelay = 3f; // זמן פיצוץ
-    [SerializeField] private int bombAmount = 1;
+    public int bombAmount = 1;
     [SerializeField] private GameObject bombPrefab;
     private int bombRemaining;
     
@@ -19,7 +19,7 @@ public class BombController : MonoBehaviour
 
     [Header("BricksExplosion")] [SerializeField]
     public Tilemap bricksOnTilemap;
-    public BricksExplosion bricksPrefab;
+    public ItemsToDestruct bricksPrefab;
     
     private void OnEnable()
     {
@@ -43,7 +43,7 @@ public class BombController : MonoBehaviour
         Bomb bomb = MonoPool<Bomb>.Instance.Get();
         if (bomb == null)
         {
-            Debug.LogError("No bomb available in the pool!");
+            //Debug.LogError("No bomb available in the pool!");
             yield break;
         }
         bomb.transform.position = position;
@@ -75,7 +75,6 @@ public class BombController : MonoBehaviour
         if(other.gameObject.layer == LayerMask.NameToLayer("Bomb"))
         {
             other.isTrigger = false;
-            // StartCoroutine(DisableTriggerAfterDelay(other));
         }
     }
     
@@ -110,5 +109,11 @@ public class BombController : MonoBehaviour
             Instantiate(bricksPrefab, position, Quaternion.identity);
             bricksOnTilemap.SetTile(cell, null);
         }
+    }
+    
+    public void AddBomb()
+    {
+        bombAmount++;
+        bombRemaining++;
     }
 }
