@@ -7,12 +7,14 @@ public class PlayerHealth : MonoBehaviour
     private Animator animator;
     private BombController bombController;
     private PlayerController playerController;
+    private Rigidbody2D rb; // Added
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         bombController = GetComponent<BombController>();
         playerController = GetComponent<PlayerController>();
+        rb = GetComponent<Rigidbody2D>(); // Added
     }
     
     private void Start()
@@ -36,8 +38,9 @@ public class PlayerHealth : MonoBehaviour
     {
         playerController.enabled = false;
         bombController.enabled = false;
+        rb.linearVelocity = Vector2.zero; // Added
         animator.SetTrigger("IsDead");
-        Invoke(nameof(OnDeathSequenceEnd), 2f);
+        Invoke(nameof(OnDeathSequenceEnd), 1.25f);
     }
 
     private void OnDeathSequenceEnd()
