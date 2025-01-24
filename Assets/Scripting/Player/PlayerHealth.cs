@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -25,6 +26,18 @@ public class PlayerHealth : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
+        {
+            currentHealth--;
+            if (currentHealth <= 0)
+            {
+                DeathSequence();
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             currentHealth--;
             if (currentHealth <= 0)
