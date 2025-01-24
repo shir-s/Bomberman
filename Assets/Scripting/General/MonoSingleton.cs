@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -9,6 +10,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     private static T _instance;
 
 
+    //[Obsolete("Obsolete")]
     public static T Instance
     {
         get
@@ -16,12 +18,13 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
             if (_instance != null)
                 return _instance;
 
-            _instance = FindObjectOfType<T>();
+            //_instance = FindObjectOfType<T>();
+            _instance = FindFirstObjectByType<T>();
             if (_instance == null)
             {
                 var singletonObject = new GameObject(typeof(T).Name);
                 _instance = singletonObject.AddComponent<T>();
-                DontDestroyOnLoad(singletonObject);
+                DontDestroyOnLoad(singletonObject); // Don't destroy the object when loading a new scene
             }
 
             return _instance;

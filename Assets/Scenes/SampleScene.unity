@@ -3472,7 +3472,7 @@ GameObject:
   - component: {fileID: 424764056}
   - component: {fileID: 424764063}
   - component: {fileID: 424764062}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3660,6 +3660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  currentHealth: 0
 --- !u!114 &424764063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3783,10 +3784,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.14054814
-    y: 0.18674967
-    width: 0.71960646
-    height: 0.626056
+    x: 0.20764405
+    y: 0.1585307
+    width: 0.5841415
+    height: 0.68052197
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

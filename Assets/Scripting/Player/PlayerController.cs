@@ -94,4 +94,26 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = moveInput * moveSpeed;
     }
+    
+    //need to move to Class PlaterHealth:
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
+    //     {
+    //         DeathSequence();
+    //     }
+    // }
+    //
+    // private void DeathSequence()
+    // {
+    //     enabled = false;
+    //     GetComponent<BombController>().enabled = false;
+    //     animator.SetTrigger("IsDead");
+    //     Invoke(nameof(OnDeathSequenceEnd), 1.5f);
+    // }
+    //
+    // private void OnDeathSequenceEnd()
+    // {
+    //     gameObject.SetActive(false);
+    // }
 }

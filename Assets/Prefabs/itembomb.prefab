@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8003896606502874038}
   - component: {fileID: 123044222399547801}
   - component: {fileID: 884539595478474102}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: itembomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}

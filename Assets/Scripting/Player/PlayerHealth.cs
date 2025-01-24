@@ -3,38 +3,54 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 1;
-    private int currentHealth;
+    [SerializeField] private int currentHealth;
+    private Animator animator;
+    private BombController bombController;
+    private PlayerController playerController;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        bombController = GetComponent<BombController>();
+        playerController = GetComponent<PlayerController>();
+    }
+    
     private void Start()
     {
         currentHealth = maxHealth;
     }
-    
-    public void TakeDamage(int damage)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
         {
-            currentHealth = 0;
-            Die();
+            currentHealth--;
+            if (currentHealth <= 0)
+            {
+                DeathSequence();
+            }
         }
-        Debug.Log($"Player Health: {currentHealth}");
+    }
+
+    private void DeathSequence()
+    {
+        playerController.enabled = false;
+        bombController.enabled = false;
+        animator.SetTrigger("IsDead");
+        Invoke(nameof(OnDeathSequenceEnd), 2f);
+    }
+
+    private void OnDeathSequenceEnd()
+    {
+        gameObject.SetActive(false);
     }
     
-    public void RestoreHealth()
-    {
-        currentHealth = maxHealth;
-        Debug.Log($"Player Health Restored: {currentHealth}");
-    }
     
-    private void Die()
-    {
-        Debug.Log("Player Died!");
-        // Destroy(gameObject);
-    }
+    // public void RestoreHealth()
+    // {
+    //     currentHealth = maxHealth;
+    //     Debug.Log($"Player Health Restored: {currentHealth}");
+    // }
     
-    public int GetCurrentHealth()
-    {
-        return currentHealth;
-    }
+    
 }
