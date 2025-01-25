@@ -205,7 +205,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 3
   m_Sprite: {fileID: -1134255732, guid: 81469429684011b4798ea7bdba29bee9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -253,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 312865170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 2, z: 0}
+  m_LocalPosition: {x: 10, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -289,7 +289,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -318,7 +318,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  moveHorizontally: 1
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 2176
 --- !u!1 &402479649
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +332,7 @@ GameObject:
   - component: {fileID: 402479650}
   - component: {fileID: 402479652}
   - component: {fileID: 402479651}
-  m_Layer: 7
+  m_Layer: 13
   m_Name: TilemapBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3881,7 +3883,7 @@ MonoBehaviour:
   explosionLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  explosionDuration: 1
+  explosionDuration: 0.5
   explosionRadius: 1
   bricksOnTilemap: {fileID: 1317043939}
   bricksPrefab: {fileID: 3466972700881187141, guid: db9458340d519604bb41a4fd0ec02d57, type: 3}
@@ -3898,6 +3900,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3984,10 +3987,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.19512194
-    y: 0.08288929
-    width: 0.6091612
-    height: 0.83362937
+    x: 0.09987516
+    y: 0.06576784
+    width: 0.7990013
+    height: 0.86813545
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -4017,7 +4020,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 4.45, y: -1.99, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4047,6 +4050,23 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2996fd28360a844cb4f631616cdf210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 424764061}
+  minBounds: {x: 0, y: 0}
+  maxBounds: {x: 31, y: 13}
+  smoothSpeed: 0.12
+  cameraSize: {x: 9, y: -4}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4190,7 +4210,7 @@ GameObject:
   - component: {fileID: 1317043939}
   - component: {fileID: 1317043938}
   - component: {fileID: 1317043940}
-  m_Layer: 11
+  m_Layer: 7
   m_Name: TilemapBricks
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -5236,8 +5256,8 @@ GameObject:
   - component: {fileID: 1514320754}
   - component: {fileID: 1514320753}
   - component: {fileID: 1514320752}
-  - component: {fileID: 1514320751}
-  m_Layer: 11
+  - component: {fileID: 1514320755}
+  m_Layer: 7
   m_Name: TilemapBorder
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -5259,33 +5279,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2039195801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1514320751
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514320748}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!19719996 &1514320752
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -5318,7 +5311,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
+  m_CompositeOperation: 1
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
@@ -6982,6 +6975,33 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &1514320755
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514320748}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2039195799
 GameObject:
   m_ObjectHideFlags: 0
