@@ -57,20 +57,7 @@ public class PlayerController : MonoBehaviour
         footstepAudioSource.Stop();
         animator.speed = 0f;
     }
-
-    // private void UpdateAnimation(Vector2 direction)
-    // {
-    //     if (direction != Vector2.zero)
-    //     {
-    //         animator.SetFloat("Horizontal", direction.x);
-    //         animator.SetFloat("Vertical", direction.y);
-    //         animator.SetBool("IsMoving", true);
-    //     }
-    //     else
-    //     {
-    //         animator.SetBool("IsMoving", false);
-    //     }
-    // }
+    
     private void UpdateAnimation(Vector2 direction)
     {
         bool isMoving = direction != Vector2.zero;
@@ -107,26 +94,4 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = moveInput * moveSpeed;
     }
-    
-    //need to move to Class PlaterHealth:
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
-    //     {
-    //         DeathSequence();
-    //     }
-    // }
-    //
-    // private void DeathSequence()
-    // {
-    //     enabled = false;
-    //     GetComponent<BombController>().enabled = false;
-    //     animator.SetTrigger("IsDead");
-    //     Invoke(nameof(OnDeathSequenceEnd), 1.5f);
-    // }
-    //
-    // private void OnDeathSequenceEnd()
-    // {
-    //     gameObject.SetActive(false);
-    // }
 }

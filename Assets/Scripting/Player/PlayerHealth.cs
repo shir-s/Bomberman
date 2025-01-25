@@ -52,7 +52,8 @@ public class PlayerHealth : MonoBehaviour
     private void DeathSequence()
     {
         playerController.enabled = false;
-        bombController.enabled = false;
+        //bombController.enabled = false;
+        bombController.enabled = true;
         rb.linearVelocity = Vector2.zero; // Added
         SoundManager.Instance.PlayDeathSound();
         animator.SetTrigger("IsDead");

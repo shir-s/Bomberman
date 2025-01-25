@@ -31,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
     private void DeathSequence()
     {
         animator.SetTrigger("IsDead");
-        Invoke(nameof(OnDeathSequenceEnd), 1.25f);
+        Invoke(nameof(OnDeathSequenceEnd), 1f);
     }
 
     private void OnDeathSequenceEnd()
