@@ -9,11 +9,16 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private InputSystem_Actions inputActions;
 
+    private AudioSource footstepAudioSource;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         inputActions = new InputSystem_Actions();
+        
+        footstepAudioSource = gameObject.AddComponent<AudioSource>();
+        footstepAudioSource.loop = true;
     }
 
     private void OnEnable()
@@ -35,6 +40,13 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
         UpdateAnimation(moveInput);
+        if (!footstepAudioSource.isPlaying)
+        {
+            footstepAudioSource.clip = Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y)
+                ? SoundManager.Instance.footstepHorizontal
+                : SoundManager.Instance.footstepVertical;
+            footstepAudioSource.Play();
+        }
         animator.speed = 1f;
     }
 
@@ -42,6 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = Vector2.zero;
         UpdateAnimation(moveInput);
+        footstepAudioSource.Stop();
         animator.speed = 0f;
     }
 

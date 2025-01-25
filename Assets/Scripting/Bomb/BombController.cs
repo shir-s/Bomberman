@@ -36,6 +36,7 @@ public class BombController : MonoBehaviour
     
     private IEnumerator DropBomb()
     {
+        SoundManager.Instance.PlayBombPlacementSound();
         Vector2 position = transform.position;
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);

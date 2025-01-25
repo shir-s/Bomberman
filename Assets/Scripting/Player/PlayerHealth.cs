@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     private BombController bombController;
     private PlayerController playerController;
     private Rigidbody2D rb; // Added
+    
+    
 
     private void Awake()
     {
@@ -52,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
         playerController.enabled = false;
         bombController.enabled = false;
         rb.linearVelocity = Vector2.zero; // Added
+        SoundManager.Instance.PlayDeathSound();
         animator.SetTrigger("IsDead");
         Invoke(nameof(OnDeathSequenceEnd), 1.25f);
     }
