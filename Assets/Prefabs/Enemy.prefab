@@ -217,3 +217,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   currentHealth: 0
+  scorePopupPrefab: {fileID: 2530961942363012934, guid: 10ae3fae0a0e04b4f97f436430522241, type: 3}
+  scoreValue: 100
