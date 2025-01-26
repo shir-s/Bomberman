@@ -16,7 +16,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
         if (timeText != null)
         {
-            timeText.text = "TIME " + time;
+            timeText.text = "  TIME " + time;
         }
     }
 
@@ -38,7 +38,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
         if (livesText != null)
         {
-            livesText.text = "LEFT " + lives;
+            livesText.text = "LEFT " + lives +"  ";
         }
     }
 }
