@@ -30,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void DeathSequence()
     {
+        GameManager.Instance.AddScore(100);
         animator.SetTrigger("IsDead");
         Invoke(nameof(OnDeathSequenceEnd), 1f);
     }

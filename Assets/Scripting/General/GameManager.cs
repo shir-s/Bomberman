@@ -1,61 +1,82 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoSingleton<GameManager>
 {
     public int score = 0; // ניקוד השחקן
-    public Text scoreText; // רכיב ה-UI שמציג את הניקוד
-    public GameObject scorePopupPrefab; // פריפאב שמופיע עם 100 נקודות
-    public Transform enemiesParent; // הורה של כל האויבים בסצנה
+    public int timeRemaining = 200; // הזמן שנותר
+    public int livesRemaining = 3; // מספר הסבבים (LEFT)
+
+    public Transform playerStartPosition; // נקודת התחלה של השחקן
+    public GameObject player; // השחקן עצמו
 
     private void Start()
     {
-        UpdateScoreUI(); // עדכון התצוגה של הניקוד בהתחלה
+        // עדכון ה-UI בתחילת המשחק
+        UIManager.Instance.UpdateScoreText(score);
+        UIManager.Instance.UpdateTimeText(timeRemaining);
+        UIManager.Instance.UpdateLivesText(livesRemaining);
+
+        // הפעלת טיימר
+        InvokeRepeating(nameof(UpdateTimer), 1f, 1f);
     }
 
-    // פונקציה שמוסיפה ניקוד לשחקן
-    public void AddScore(int points, Vector3 position)
+    private void UpdateTimer()
+    {
+        if (timeRemaining > 0)
+        {
+            timeRemaining--;
+            UIManager.Instance.UpdateTimeText(timeRemaining);
+
+            if (timeRemaining == 0)
+            {
+                LoseLife(); // הפסד סבב עקב נגמר הזמן
+            }
+        }
+    }
+
+    public void AddScore(int points)
     {
         score += points;
-        UpdateScoreUI();
+        UIManager.Instance.UpdateScoreText(score);
+    }
 
-        // הצגת התמונה הקטנה של 100
-        if (scorePopupPrefab != null)
+    public void OnPlayerDeath()
+    {
+        LoseLife(); // הפסד סבב עקב מוות
+    }
+
+    private void LoseLife()
+    {
+        livesRemaining--;
+
+        if (livesRemaining > 0)
         {
-            GameObject popup = Instantiate(scorePopupPrefab, position, Quaternion.identity);
-            Destroy(popup, 1.5f); // השמדת התמונה לאחר זמן קצר
+            ResetGame(); // איפוס המשחק אם נותרו חיים
         }
-    }
-
-    // עדכון טקסט הניקוד
-    private void UpdateScoreUI()
-    {
-        if (scoreText != null)
+        else
         {
-            scoreText.text = "Score: " + score;
+            EndGame(); // הפסד סופי
         }
+
+        UIManager.Instance.UpdateLivesText(livesRemaining);
     }
 
-    // בדיקה אם כל האויבים נהרגו
-    public bool AreAllEnemiesDefeated()
+    private void ResetGame()
     {
-        return enemiesParent != null && enemiesParent.childCount == 0;
+        Debug.Log("Resetting game...");
+        timeRemaining = 200; // איפוס הטיימר
+        UIManager.Instance.UpdateTimeText(timeRemaining);
+
+        // הזזת השחקן לנקודת ההתחלה
+        player.transform.position = playerStartPosition.position;
+
+        // ניתן להוסיף כאן איפוס מצבים נוספים
     }
 
-    // פונקציה לבדוק אם השחקן ניצח
-    private void CheckWinCondition()
+    private void EndGame()
     {
-        if (AreAllEnemiesDefeated())
-        {
-            Debug.Log("You Win!");
-            // ניתן להוסיף כאן מעבר למסך ניצחון
-        }
-    }
-
-    // קריאה לפונקציה כל פעם שאויב נהרג
-    public void OnEnemyDefeated(Vector3 position)
-    {
-        AddScore(100, position);
-        CheckWinCondition();
+        Debug.Log("Game Over!");
+        CancelInvoke(nameof(UpdateTimer)); // עצירת הטיימר
+        // ניתן להוסיף כאן מעבר למסך הפסד
     }
 }
