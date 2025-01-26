@@ -10,7 +10,6 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     private static T _instance;
 
 
-    //[Obsolete("Obsolete")]
     public static T Instance
     {
         get

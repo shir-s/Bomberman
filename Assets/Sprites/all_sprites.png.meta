@@ -1638,6 +1638,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Score100
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 37
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901ecf3774ea202408f236875201b97e
+      internalID: -363040473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1667,6 +1689,7 @@ TextureImporter:
       ExplosionCenter1: 1244216056
       ExplosionCenter2: -1862755834
       ExplosionCenter3: 5990254803451323159
+      Score100: -363040473
       all_sprites_0: 381138675
       all_sprites_1: -1469217261
       all_sprites_10: -301432712
