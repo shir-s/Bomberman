@@ -53,11 +53,13 @@ public class PlayerHealth : MonoBehaviour
     {
         playerController.enabled = false;
         //bombController.enabled = false;
+        animator.speed = 1f;
         bombController.enabled = true;
         rb.linearVelocity = Vector2.zero; // Added
         SoundManager.Instance.PlayDeathSound();
         animator.SetTrigger("IsDead");
-        Invoke(nameof(OnDeathSequenceEnd), 1.25f);
+        //animator.SetBool("IsDead", true);
+        //Invoke(nameof(OnDeathSequenceEnd), 1.25f);
     }
 
     private void OnDeathSequenceEnd()
