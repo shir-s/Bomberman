@@ -27,27 +27,50 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy")) // הגדרת Layer מיוחד ל-CircleCollider של האויב
         {
-            currentHealth--;
-            if (currentHealth <= 0)
-            {
-                DeathSequence();
-            }
+            Debug.Log("Player collided with enemy trigger!");
+            TakeDamage();
+            Debug.Log("Player is deaddddd!");
+        }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Explosion")) // פגיעה מפיצוץ
+        {
+            TakeDamage();
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D other)
+    
+    private void TakeDamage()
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        currentHealth--;
+        if (currentHealth <= 0)
         {
-            currentHealth--;
-            if (currentHealth <= 0)
-            {
-                DeathSequence();
-            }
+            DeathSequence();
         }
     }
+    
+    //Befor adding 2 colliders:
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
+    //     {
+    //         currentHealth--;
+    //         if (currentHealth <= 0)
+    //         {
+    //             DeathSequence();
+    //         }
+    //     }
+    // }
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+    //     {
+    //         currentHealth--;
+    //         if (currentHealth <= 0)
+    //         {
+    //             DeathSequence();
+    //         }
+    //     }
+    // }
 
     private void DeathSequence()
     {

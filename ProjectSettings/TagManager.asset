@@ -22,10 +22,10 @@ TagManager:
   - Item
   - Wall
   - Enemy
+  - EnemyTrigger
   - Background
   - Teleporters
   - Canvas
-  - 
   - 
   - 
   - 
