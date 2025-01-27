@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - Enemy
   - Explosion
+  - Teleporters
   layers:
   - Default
   - TransparentFX
@@ -22,8 +23,8 @@ TagManager:
   - Wall
   - Enemy
   - Background
+  - Teleporters
   - Canvas
-  - 
   - 
   - 
   - 

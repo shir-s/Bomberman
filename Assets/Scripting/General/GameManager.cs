@@ -19,7 +19,7 @@ public class GameManager : MonoSingleton<GameManager>
         // הפעלת טיימר
         InvokeRepeating(nameof(UpdateTimer), 1f, 1f);
     }
-
+    
     private void UpdateTimer()
     {
         if (timeRemaining > 0)

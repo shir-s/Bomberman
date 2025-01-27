@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void DeathSequence()
     {
-        GameManager.Instance.AddScore(100);
+        GameManager.Instance.AddScore(scoreValue);
         animator.SetTrigger("IsDead");
         CreateScorePopup();
         Invoke(nameof(OnDeathSequenceEnd), 1f);
