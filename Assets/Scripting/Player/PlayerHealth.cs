@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     private BombController bombController;
     private PlayerController playerController;
     private Rigidbody2D rb; // Added
+    private bool isDead = false; 
     
     
 
@@ -72,6 +73,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void DeathSequence()
     {
+        if (isDead) return; // אם השחקן כבר מת, לא להמשיך
+        isDead = true;
         playerController.enabled = false;
         //bombController.enabled = false;
         animator.speed = 1f;
@@ -82,9 +85,6 @@ public class PlayerHealth : MonoBehaviour
         
         Debug.Log("Calling GameManager.Instance.LoseLife()");
         GameManager.Instance.LoseLife();
-        //GameManager.Instance.RestartGame();
-        //animator.SetBool("IsDead", true);
-        //Invoke(nameof(OnDeathSequenceEnd), 1.25f);
     }
 
     private void OnDeathSequenceEnd()
