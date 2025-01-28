@@ -27,13 +27,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy")) // הגדרת Layer מיוחד ל-CircleCollider של האויב
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            //Debug.Log("Player collided with enemy trigger!");
             TakeDamage();
-            //Debug.Log("Player is deaddddd!");
         }
-        else if (other.gameObject.layer == LayerMask.NameToLayer("Explosion")) // פגיעה מפיצוץ
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
         {
             TakeDamage();
         }
@@ -81,6 +79,10 @@ public class PlayerHealth : MonoBehaviour
         rb.linearVelocity = Vector2.zero; // Added
         SoundManager.Instance.PlayDeathSound();
         animator.SetTrigger("IsDead");
+        
+        Debug.Log("Calling GameManager.Instance.LoseLife()");
+        GameManager.Instance.LoseLife();
+        //GameManager.Instance.RestartGame();
         //animator.SetBool("IsDead", true);
         //Invoke(nameof(OnDeathSequenceEnd), 1.25f);
     }
