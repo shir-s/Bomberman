@@ -67,6 +67,8 @@ public class BombController : MonoBehaviour
         Explode(position, Vector2.left, explosionRadius);
         Explode(position, Vector2.right, explosionRadius);
         
+        SoundManager.Instance.PlayExplosionSound();
+        
         bomb.ReturnToPool();
         bombRemaining++;
     }

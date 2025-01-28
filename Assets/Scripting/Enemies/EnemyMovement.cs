@@ -10,6 +10,8 @@ public class EnemyMovement : MonoBehaviour
     private readonly Vector2[] possibleDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
     private Animator animator;
 
+    private bool isMoving = true;
+    
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -49,6 +51,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void UpdateAnimation(Vector2 direction)
     {
+        if (!isMoving) return;
+        
         animator.SetBool("IsMovingRight", false);
         animator.SetBool("IsMovingLeft", false);
         animator.SetBool("IsMovingUp", false);
@@ -70,5 +74,18 @@ public class EnemyMovement : MonoBehaviour
         {
             animator.SetBool("IsMovingDown", true);
         }
+    }
+    
+    public void StopMovement()
+    {
+        
+        Debug.Log("Stopping enemy movement.");
+        isMoving = false;
+
+        // הפסקת האנימציות
+        animator.SetBool("IsMovingRight", false);
+        animator.SetBool("IsMovingLeft", false);
+        animator.SetBool("IsMovingUp", false);
+        animator.SetBool("IsMovingDown", false);
     }
 }

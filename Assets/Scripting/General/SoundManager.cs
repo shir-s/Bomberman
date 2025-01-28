@@ -7,6 +7,8 @@ public class SoundManager : MonoSingleton<SoundManager>
     public AudioClip footstepVertical;
     public AudioClip placementBomb;
     public AudioClip deathSound;
+    public AudioClip explosionSound;
+    //public AudioClip powerUpSound;
 
     private AudioSource backgroundAudioSource;
     private AudioSource effectsAudioSource;
@@ -59,6 +61,14 @@ public class SoundManager : MonoSingleton<SoundManager>
         if (deathSound != null)
         {
             effectsAudioSource.PlayOneShot(deathSound);
+        }
+    }
+    
+    public void PlayExplosionSound()
+    {
+        if (explosionSound != null)
+        {
+            effectsAudioSource.PlayOneShot(explosionSound);
         }
     }
 }

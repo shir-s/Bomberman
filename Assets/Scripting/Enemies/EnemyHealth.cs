@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int maxHealth = 1;
     [SerializeField] private int currentHealth;
     private Animator animator;
+    private bool isDead = false;
     
     [Header("Score Popup")]
     [SerializeField] private GameObject scorePopupPrefab;
@@ -22,6 +23,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isDead) return;
+        
         if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
         {
             currentHealth--;
@@ -34,10 +37,16 @@ public class EnemyHealth : MonoBehaviour
 
     private void DeathSequence()
     {
+        isDead = true;
+        EnemyMovement movement = GetComponent<EnemyMovement>();
+        if (movement != null)
+        {
+            movement.StopMovement();
+        }
         GameManager.Instance.AddScore(scoreValue);
         animator.SetTrigger("IsDead");
         CreateScorePopup();
-        Invoke(nameof(OnDeathSequenceEnd), 1f);
+        Invoke(nameof(OnDeathSequenceEnd), 1.1f);
     }
 
     private void OnDeathSequenceEnd()
@@ -49,7 +58,6 @@ public class EnemyHealth : MonoBehaviour
     {
         if (scorePopupPrefab != null)
         {
-            // יצירת ה-ScorePopup במיקום של האויב
             Instantiate(scorePopupPrefab, transform.position, Quaternion.identity);
         }
     }

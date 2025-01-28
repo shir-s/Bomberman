@@ -29,9 +29,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy")) // הגדרת Layer מיוחד ל-CircleCollider של האויב
         {
-            Debug.Log("Player collided with enemy trigger!");
+            //Debug.Log("Player collided with enemy trigger!");
             TakeDamage();
-            Debug.Log("Player is deaddddd!");
+            //Debug.Log("Player is deaddddd!");
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Explosion")) // פגיעה מפיצוץ
         {
