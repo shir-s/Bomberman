@@ -9,9 +9,7 @@ public class GameManager : MonoSingleton<GameManager>
     public string stageSceneName = "StageScene"; // שם הסצנה שמופיעה לפני תחילת סבב חדש
     public string gameOverSceneName = "GameOverScene";
     public string gameSceneName = "GameScene";
-
-    public Transform playerStartPosition; // נקודת התחלה של השחקן
-    public GameObject player; // השחקן עצמו
+    private bool isTimerRunning = false;
     
     private bool isTransitioning = false;
 
@@ -22,15 +20,10 @@ public class GameManager : MonoSingleton<GameManager>
     
     private void Start()
     {
+        if (livesRemaining == 0) livesRemaining = 3;
         UpdateUI();
         StartTimer();
         //InvokeRepeating(nameof(UpdateTimer), 1f, 1f);
-    }
-    
-    private void StartTimer()
-    {
-        CancelInvoke(nameof(UpdateTimer)); // איפוס הטיימר במעבר בין סצנות
-        InvokeRepeating(nameof(UpdateTimer), 1f, 1f);
     }
     
     private void UpdateUI()
@@ -40,6 +33,19 @@ public class GameManager : MonoSingleton<GameManager>
         UIManager.Instance.UpdateLivesText(livesRemaining);
     }
 
+    private void StartTimer()
+    {
+        if (isTimerRunning) return; // אם הטיימר כבר פועל, לא להפעיל שוב
+        CancelInvoke(nameof(UpdateTimer)); // איפוס כל הטיימרים
+        InvokeRepeating(nameof(UpdateTimer), 1f, 1f); // התחלת טיימר
+        isTimerRunning = true;
+    }
+    
+    private void StopTimer()
+    {
+        CancelInvoke(nameof(UpdateTimer)); // עצירת כל הטיימרים לפונקציה UpdateTimer
+        isTimerRunning = false; // עדכון הדגל
+    }
     
     private void UpdateTimer()
     {
@@ -67,7 +73,7 @@ public class GameManager : MonoSingleton<GameManager>
         if (isTransitioning) return;
         isTransitioning = true;
         livesRemaining--;
-
+        UIManager.Instance.UpdateLivesText(livesRemaining);
         if (livesRemaining > 0)
         {
             TransitionToStageScene();
@@ -76,30 +82,43 @@ public class GameManager : MonoSingleton<GameManager>
         {
             EndGame();
         }
-
-        UIManager.Instance.UpdateLivesText(livesRemaining);
     }
     
     private void TransitionToStageScene()
     {
         Debug.Log("Transitioning to StageScene...");
-        SceneManager.LoadScene(stageSceneName); // טעינת סצנת StageScene
-        StartCoroutine(WaitAndRestartGame());
+        SceneManager.LoadScene(stageSceneName);
+        StartCoroutine(WaitBeforeTransitionToStageScene());
     }
-    
-    private System.Collections.IEnumerator WaitAndRestartGame()
+
+    private System.Collections.IEnumerator WaitBeforeTransitionToStageScene()
     {
-        yield return new WaitForSeconds(3f); // המתנה ל-3 שניות
-        ResetGame();
+        yield return new WaitForSeconds(2f); // המתנה ל-2 שניות
+        RestartGame();
     }
     
-    private void ResetGame()
+    private void RestartGame()
     {
         Debug.Log("Restarting Game...");
-        SceneManager.LoadScene(gameSceneName); // טעינת סצנת המשחק
-        timeRemaining = 200; // איפוס הזמן
-        UIManager.Instance.UpdateTimeText(timeRemaining);
+        StopTimer(); // עצירת טיימר ישן לפני הטעינה
+        SceneManager.LoadScene(gameSceneName);
         isTransitioning = false;
+        StartCoroutine(WaitForSceneLoad());
+    }
+
+    private System.Collections.IEnumerator WaitForSceneLoad()
+    {
+        // מחכה לסיום טעינת הסצנה
+        yield return new WaitUntil(() => SceneManager.GetActiveScene().name == gameSceneName);
+
+        Debug.Log("GameScene loaded. Updating UI...");
+        UIManager.Instance.AssignUIComponents(); // משייכים מחדש את רכיבי ה-UI
+        UIManager.Instance.UpdateTimeText(timeRemaining);
+        UIManager.Instance.UpdateLivesText(livesRemaining);
+        UIManager.Instance.UpdateScoreText(score);
+
+        // הפעלת הטיימר מחדש
+        StartTimer();
     }
 
     private void EndGame()

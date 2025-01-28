@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
 {
@@ -9,9 +8,37 @@ public class UIManager : MonoSingleton<UIManager>
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
 
-    /// <summary>
-    /// Update the time text on the panel.
-    /// </summary>
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        AssignUIComponents();
+    }
+
+    public void AssignUIComponents()
+    {
+        if (timeText == null)
+        {
+            timeText = GameObject.Find("TimeText")?.GetComponent<TextMeshProUGUI>();
+            if (timeText == null) Debug.LogError("TimeText could not be found in the scene!");
+        }
+
+        if (scoreText == null)
+        {
+            scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
+            if (scoreText == null) Debug.LogError("ScoreText could not be found in the scene!");
+        }
+
+        if (livesText == null)
+        {
+            livesText = GameObject.Find("LivesText")?.GetComponent<TextMeshProUGUI>();
+            if (livesText == null) Debug.LogError("LivesText could not be found in the scene!");
+        }
+    }
+
     public void UpdateTimeText(int time)
     {
         if (timeText != null)
@@ -20,25 +47,19 @@ public class UIManager : MonoSingleton<UIManager>
         }
     }
 
-    /// <summary>
-    /// Update the score text on the panel.
-    /// </summary>
     public void UpdateScoreText(int score)
     {
         if (scoreText != null)
         {
-            scoreText.text = score.ToString("D2"); // שומר על מבנה של 2 ספרות
+            scoreText.text = score.ToString("D2");
         }
     }
 
-    /// <summary>
-    /// Update the lives text on the panel.
-    /// </summary>
     public void UpdateLivesText(int lives)
     {
         if (livesText != null)
         {
-            livesText.text = "LEFT " + lives +"  ";
+            livesText.text = "LEFT " + lives + "  ";
         }
     }
 }
