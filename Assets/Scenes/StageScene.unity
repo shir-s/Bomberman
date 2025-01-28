@@ -198,7 +198,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -255228739
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &119776307
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df8e645c12779442981f201d297c621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneTime: 5
+  sceneTime: 2
   sceneIndex: 2
 --- !u!1 &1312880768
 GameObject:
@@ -437,10 +437,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.27360988
+    y: 0.036608864
+    width: 0.45189762
+    height: 0.92485553
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

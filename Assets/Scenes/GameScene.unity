@@ -391,7 +391,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -1387525277
+  m_SortingLayerID: -255228739
   m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &250578439
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 328600834}
   - component: {fileID: 328600833}
   m_Layer: 14
-  m_Name: Score
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -589,6 +589,7 @@ MonoBehaviour:
   footstepVertical: {fileID: 8300000, guid: ea27ed5c10bde40419f183fa156e155f, type: 3}
   placementBomb: {fileID: 8300000, guid: 2e66b95451fc7fc4d8b61fd52a791622, type: 3}
   deathSound: {fileID: 8300000, guid: c0261ded1f35de040b25d97f86eb866b, type: 3}
+  explosionSound: {fileID: 0}
 --- !u!4 &374758958
 Transform:
   m_ObjectHideFlags: 0
@@ -4270,10 +4271,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.17073171
-    y: 0.081739135
-    width: 0.6572529
-    height: 0.8347826
+    x: 0.27360988
+    y: 0.036608864
+    width: 0.45189762
+    height: 0.92485553
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -4303,7 +4304,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 4.49, y: -2.01, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4387,7 +4388,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000630b4cad
+  m_ApplyToSortingLayers: 00000000630b4cad3754239dbd84c9f0
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -4481,7 +4482,7 @@ GameObject:
   - component: {fileID: 862423790}
   - component: {fileID: 862423789}
   m_Layer: 14
-  m_Name: ChanceLeft
+  m_Name: LivesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6043,8 +6044,9 @@ MonoBehaviour:
   score: 0
   timeRemaining: 200
   livesRemaining: 3
-  playerStartPosition: {fileID: 0}
-  player: {fileID: 0}
+  stageSceneName: StageScene
+  gameOverSceneName: GameOverScene
+  gameSceneName: GameScene
 --- !u!4 &1513790301
 Transform:
   m_ObjectHideFlags: 0
