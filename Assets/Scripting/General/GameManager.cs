@@ -127,6 +127,10 @@ public class GameManager : MonoSingleton<GameManager>
         StartTimer();
     }
     
+    public bool AreAllEnemiesDefeated()
+    {
+        return GameObject.FindGameObjectsWithTag("Enemy").Length == 0;
+    }
 
     private void EndGame()
     {
