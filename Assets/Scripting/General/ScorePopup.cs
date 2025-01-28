@@ -3,7 +3,7 @@ using UnityEngine;
 public class ScorePopup : MonoBehaviour
 {
     public float duration = 1.5f;
-    public float delay = 0.2f;
+    public float delay = 0.1f;
     public Vector3 offset = new Vector3(0, 1, 0);
     public float fadeSpeed = 0.5f;
 

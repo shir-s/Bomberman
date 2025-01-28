@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        isDead = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

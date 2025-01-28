@@ -20,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if(!isMoving) return;
         transform.Translate(currentDirection * speed * Time.deltaTime);
         if (IsDirectionBlocked())
         {
@@ -78,14 +79,17 @@ public class EnemyMovement : MonoBehaviour
     
     public void StopMovement()
     {
-        
         Debug.Log("Stopping enemy movement.");
         isMoving = false;
-
-        // הפסקת האנימציות
         animator.SetBool("IsMovingRight", false);
         animator.SetBool("IsMovingLeft", false);
         animator.SetBool("IsMovingUp", false);
         animator.SetBool("IsMovingDown", false);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            Debug.Log("Enemy rigidbody velocity set to zero.!!!!!!!");
+        }
     }
 }
