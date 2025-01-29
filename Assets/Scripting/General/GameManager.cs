@@ -93,17 +93,37 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    // private void TransitionToStageScene() !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // {
+    //     StopTimer();
+    //     SceneManager.LoadScene(stageSceneName);
+    //     StartCoroutine(WaitBeforeTransitionToStageScene());
+    // }
+    //
+    // private System.Collections.IEnumerator WaitBeforeTransitionToStageScene()
+    // {
+    //     yield return new WaitForSeconds(2f); // המתנה ל-2 שניות
+    //     RestartGame();
+    // }
+    
     private void TransitionToStageScene()
     {
-        StopTimer();
-        SceneManager.LoadScene(stageSceneName);
-        StartCoroutine(WaitBeforeTransitionToStageScene());
+        StopTimer(); // עצור את הטיימר לפני המעבר
+        StartCoroutine(WaitBeforeTransitionToStageScene()); // הפעל את הקורוטינה
     }
 
     private System.Collections.IEnumerator WaitBeforeTransitionToStageScene()
     {
-        yield return new WaitForSeconds(2f); // המתנה ל-2 שניות
-        RestartGame();
+        yield return new WaitForSeconds(2f); // המתן 2 שניות
+        SceneManager.LoadScene(stageSceneName); // טעינת סצנת הביניים
+        StartCoroutine(WaitForStageSceneLoad()); // המתן שהסצנה StageScene תיטען ואז הפעל את RestartGame
+    }
+
+    private System.Collections.IEnumerator WaitForStageSceneLoad()
+    {
+        yield return new WaitUntil(() => SceneManager.GetActiveScene().name == stageSceneName);
+        Debug.Log("StageScene loaded. Restarting the game...");
+        RestartGame(); // קריאה לפונקציית האתחול
     }
     
     private void RestartGame()
@@ -177,8 +197,5 @@ public class GameManager : MonoSingleton<GameManager>
 
         StartTimer(); // התחלת הטיימר מחדש
     }
-
-
-    
 
 }

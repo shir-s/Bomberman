@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 1
+  sceneAudio: {fileID: 8300000, guid: 5d68174d3fc873140b59ad2405d6b761, type: 3}
 --- !u!1 &526853280
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,10 +437,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.73433363
-    y: 0.098148145
-    width: 0.22594881
-    height: 0.44444445
+    x: 0.2842725
+    y: 0.04887218
+    width: 0.43061396
+    height: 0.90225565
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
