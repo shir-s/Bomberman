@@ -4,13 +4,12 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 1;
-    [SerializeField] private int currentHealth;
+    public int currentHealth;
     private Animator animator;
     private BombController bombController;
     private PlayerController playerController;
     private Rigidbody2D rb; // Added
     private bool isDead = false; 
-    
     
 
     private void Awake()

@@ -170,6 +170,22 @@ public class GameManager : MonoSingleton<GameManager>
         StartCoroutine(WaitForGameSceneLoad());
     }
 
+    // public System.Collections.IEnumerator WaitForGameSceneLoad()
+    // {
+    //     // מחכה לטעינת GameScene
+    //     yield return new WaitUntil(() => SceneManager.GetActiveScene().name == "GameScene");
+    //
+    //     Debug.Log("GameScene loaded. Initializing UI and timer...");
+    //
+    //     // בדוק אם UIManager קיים ורק אז עדכן
+    //     UIManager.Instance.AssignUIComponents();
+    //     UIManager.Instance.UpdateTimeText(timeRemaining);
+    //     UIManager.Instance.UpdateLivesText(livesRemaining);
+    //     UIManager.Instance.UpdateScoreText(score);
+    //
+    //     StartTimer(); // התחלת הטיימר מחדש
+    // }
+    
     private System.Collections.IEnumerator WaitForGameSceneLoad()
     {
         // מחכה לטעינת GameScene
@@ -177,13 +193,33 @@ public class GameManager : MonoSingleton<GameManager>
 
         Debug.Log("GameScene loaded. Initializing UI and timer...");
 
-        // בדוק אם UIManager קיים ורק אז עדכן
-        UIManager.Instance.AssignUIComponents();
-        UIManager.Instance.UpdateTimeText(timeRemaining);
-        UIManager.Instance.UpdateLivesText(livesRemaining);
-        UIManager.Instance.UpdateScoreText(score);
+        // וודא שרכיבי ה-UI מחוברים
+        if (UIManager.Instance != null)
+        {
+            yield return new WaitForSeconds(0.5f); 
+            UIManager.Instance.AssignUIComponents(); ////
 
-        StartTimer(); // התחלת הטיימר מחדש
+            // רק אם רכיבי ה-UI נטענו בהצלחה, עדכן אותם
+            if (UIManager.Instance.timeText != null &&
+                UIManager.Instance.scoreText != null &&
+                UIManager.Instance.livesText != null)
+            {
+                UIManager.Instance.UpdateTimeText(timeRemaining);
+                UIManager.Instance.UpdateLivesText(livesRemaining);
+                UIManager.Instance.UpdateScoreText(score);
+                StartTimer();
+            }
+            else
+            {
+                Debug.LogError("UI components are still missing after assignment!");
+            }
+        }
+        else
+        {
+            Debug.LogError("UIManager instance is null!");
+        }
     }
+
+
 
 }
