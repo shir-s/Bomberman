@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class CheatCodes : MonoBehaviour
 {
-    [SerializeField] private Transform playerStartPosition; // נקודת התחלה של השחקן
+    [SerializeField] private Transform playerStartPosition;
     
     void Update()
     {
@@ -27,12 +27,11 @@ public class CheatCodes : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             Debug.Log("Cheat Code Activated: Infinite Lives");
-
-            // מציאת השחקן ועדכון ה-PlayerHealth
+            
             PlayerHealth playerHealth = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.currentHealth = 999; // הגדרת חיים אינסופיים
+                playerHealth.currentHealth = 999;
                 Debug.Log("Player health set to infinite!");
             }
             else

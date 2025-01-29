@@ -46,29 +46,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     
-    //Befor adding 2 colliders:
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
-    //     {
-    //         currentHealth--;
-    //         if (currentHealth <= 0)
-    //         {
-    //             DeathSequence();
-    //         }
-    //     }
-    // }
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-    //     {
-    //         currentHealth--;
-    //         if (currentHealth <= 0)
-    //         {
-    //             DeathSequence();
-    //         }
-    //     }
-    // }
 
     private void DeathSequence()
     {
@@ -90,13 +67,5 @@ public class PlayerHealth : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    
-    
-    // public void RestoreHealth()
-    // {
-    //     currentHealth = maxHealth;
-    //     Debug.Log($"Player Health Restored: {currentHealth}");
-    // }
-    
     
 }

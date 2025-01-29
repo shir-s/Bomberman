@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         if (direction != Vector2.zero)
         {
-            lastDirection = direction; // עדכון כיוון התנועה האחרון
+            lastDirection = direction;
         }
 
         UpdateAnimation(direction);
@@ -72,46 +72,15 @@ public class PlayerController : MonoBehaviour
     { 
         bool isMoving = direction != Vector2.zero;
 
-        // אם אין תנועה, השתמשי בכיוון האחרון
         Vector2 effectiveDirection = isMoving ? direction : lastDirection;
 
-        // עדכון הפרמטרים של האנימטור
         animator.SetBool("IsMovingUp", effectiveDirection.y > 0);
         animator.SetBool("IsMovingDown", effectiveDirection.y < 0);
         animator.SetBool("IsMovingLeft", effectiveDirection.x < 0);
         animator.SetBool("IsMovingRight", effectiveDirection.x > 0);
 
-        // הפעלת או עצירת האנימציה
         animator.speed = isMoving ? 1f : 0f;
     }
-
-    
-    // private void UpdateAnimation(Vector2 direction)
-    // {
-    //     bool isMoving = direction != Vector2.zero;
-    //     animator.SetBool("IsMoving", isMoving);
-    //
-    //     if (isMoving)
-    //     {
-    //         animator.SetFloat("Horizontal", direction.x);
-    //         animator.SetFloat("Vertical", direction.y);
-    //         
-    //         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-    //         {
-    //             animator.SetFloat("Vertical", 0);
-    //         }
-    //         else
-    //         {
-    //             animator.SetFloat("Horizontal", 0);
-    //         }
-    //     }
-    //     else
-    //     {
-    //         animator.SetFloat("Horizontal", 0);
-    //         animator.SetFloat("Vertical", 0);
-    //     }
-    // }
-
 
     private void FixedUpdate()
     {

@@ -6,7 +6,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int score = 0;
     public int timeRemaining = 200;
     public int livesRemaining = 3;
-    public string stageSceneName = "StageScene"; // שם הסצנה שמופיעה לפני תחילת סבב חדש
+    public string stageSceneName = "StageScene";
     public string gameOverSceneName = "GameOverScene";
     public string gameSceneName = "GameScene";
 
@@ -17,7 +17,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // הורס אובייקט קיים נוסף
+            Destroy(gameObject);
             return;
         }
         DontDestroyOnLoad(gameObject);
@@ -96,14 +96,14 @@ public class GameManager : MonoSingleton<GameManager>
     private void TransitionToStageScene()
     {
         StopTimer();
-        StartCoroutine(WaitBeforeTransitionToStageScene()); // הפעל את הקורוטינה
+        StartCoroutine(WaitBeforeTransitionToStageScene());
     }
 
     private System.Collections.IEnumerator WaitBeforeTransitionToStageScene()
     {
-        yield return new WaitForSeconds(2f); // המתן 2 שניות
-        SceneManager.LoadScene(stageSceneName); // טעינת סצנת הביניים
-        StartCoroutine(WaitForStageSceneLoad()); // המתן שהסצנה StageScene תיטען ואז הפעל את RestartGame
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(stageSceneName);
+        StartCoroutine(WaitForStageSceneLoad());
     }
 
     private System.Collections.IEnumerator WaitForStageSceneLoad()
@@ -111,7 +111,7 @@ public class GameManager : MonoSingleton<GameManager>
         yield return new WaitUntil(() => SceneManager.GetActiveScene().name == stageSceneName);
         Debug.Log("StageScene loaded. Waiting for 3 seconds...");
         yield return new WaitForSeconds(3f);
-        RestartGame(); // קריאה לפונקציית האתחול
+        RestartGame();
     }
     
     private void RestartGame()
@@ -157,49 +157,28 @@ public class GameManager : MonoSingleton<GameManager>
     {
         Debug.Log("Restarting full game...");
         StopTimer();
-
-        // איפוס הערכים למשחק חדש
+        
         score = 0;
         livesRemaining = 3;
         timeRemaining = 200;
 
-        // מעבר לסצנה OpenScene
         SceneManager.LoadScene("OpenScene");
 
-        // מאתחל את ה-UI מחדש רק ברגע שנכנסים ל-GameScene
         StartCoroutine(WaitForGameSceneLoad());
     }
 
-    // public System.Collections.IEnumerator WaitForGameSceneLoad()
-    // {
-    //     // מחכה לטעינת GameScene
-    //     yield return new WaitUntil(() => SceneManager.GetActiveScene().name == "GameScene");
-    //
-    //     Debug.Log("GameScene loaded. Initializing UI and timer...");
-    //
-    //     // בדוק אם UIManager קיים ורק אז עדכן
-    //     UIManager.Instance.AssignUIComponents();
-    //     UIManager.Instance.UpdateTimeText(timeRemaining);
-    //     UIManager.Instance.UpdateLivesText(livesRemaining);
-    //     UIManager.Instance.UpdateScoreText(score);
-    //
-    //     StartTimer(); // התחלת הטיימר מחדש
-    // }
     
     private System.Collections.IEnumerator WaitForGameSceneLoad()
     {
-        // מחכה לטעינת GameScene
         yield return new WaitUntil(() => SceneManager.GetActiveScene().name == "GameScene");
 
         Debug.Log("GameScene loaded. Initializing UI and timer...");
 
-        // וודא שרכיבי ה-UI מחוברים
         if (UIManager.Instance != null)
         {
             yield return new WaitForSeconds(0.5f); 
-            UIManager.Instance.AssignUIComponents(); ////
+            UIManager.Instance.AssignUIComponents();
 
-            // רק אם רכיבי ה-UI נטענו בהצלחה, עדכן אותם
             if (UIManager.Instance.timeText != null &&
                 UIManager.Instance.scoreText != null &&
                 UIManager.Instance.livesText != null)

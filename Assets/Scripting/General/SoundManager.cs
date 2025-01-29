@@ -15,7 +15,6 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     private void Start()
     {
-        // הגדרת מקורות אודיו
         backgroundAudioSource = gameObject.AddComponent<AudioSource>();
         effectsAudioSource = gameObject.AddComponent<AudioSource>();
 
@@ -34,7 +33,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     public void PlayFootstepSound(string direction)
     {
         AudioClip sound = direction == "horizontal" ? footstepHorizontal : footstepVertical;
-        if (!effectsAudioSource.isPlaying) // לוודא שלא משמיעים פעמיים
+        if (!effectsAudioSource.isPlaying)
         {
             effectsAudioSource.clip = sound;
             effectsAudioSource.Play();

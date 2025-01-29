@@ -8,12 +8,7 @@ public class ScorePopup : MonoBehaviour
     public float fadeSpeed = 0.5f;
 
     private SpriteRenderer spriteRenderer;
-
-    // private void Start()
-    // {
-    //     spriteRenderer = GetComponent<SpriteRenderer>();
-    //     Destroy(gameObject, duration);
-    // }
+    
 
     private void Start()
     {
@@ -24,22 +19,15 @@ public class ScorePopup : MonoBehaviour
     
     private System.Collections.IEnumerator ShowPopupWithDelay()
     {
-        // השהייה של 2 שניות
         yield return new WaitForSeconds(delay);
 
-        // מציג את הפופאפ
         spriteRenderer.enabled = true;
 
-        // משמיד את האובייקט לאחר `duration` שניות נוספות
         Destroy(gameObject, duration);
     }
     
     private void Update()
     {
-        // הזזת האובייקט כלפי מעלה
-        //transform.position += offset * Time.deltaTime;
-
-        // דהייה
         if (spriteRenderer != null && spriteRenderer.enabled)
         {
             Color color = spriteRenderer.color;

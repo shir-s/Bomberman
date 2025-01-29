@@ -29,12 +29,12 @@ public class Bomb : MonoBehaviour, IPoolable
 
     private void Explode()
     {
-        Debug.Log("Boom!"); // לוג של הפיצוץ
-        onExploded?.Invoke(this); // קריאה חזרה ל-BombController
+        Debug.Log("Boom!");
+        onExploded?.Invoke(this);
     }
     
     public void ReturnToPool()
     {
-        MonoPool<Bomb>.Instance.Return(this); // החזרת הפצצה לבריכת הפצצות
+        MonoPool<Bomb>.Instance.Return(this);
     }
 }
