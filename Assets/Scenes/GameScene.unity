@@ -4174,7 +4174,6 @@ GameObject:
   - component: {fileID: 424764056}
   - component: {fileID: 424764063}
   - component: {fileID: 424764062}
-  - component: {fileID: 424764065}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -4388,22 +4387,6 @@ MonoBehaviour:
   explosionRadius: 1
   bricksOnTilemap: {fileID: 1317043939}
   bricksPrefab: {fileID: 3466972700881187141, guid: db9458340d519604bb41a4fd0ec02d57, type: 3}
---- !u!114 &424764065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424764055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00299b47ce200a44dbcc06fc2783e55c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleporterA: {fileID: 1339965179}
-  teleporterB: {fileID: 1853307453}
-  teleportKey: 122
-  playerTag: Player
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,9 +4488,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0.106153846
-    y: 0.09443508
+    y: 0.09715243
     width: 0.7876923
-    height: 0.80944353
+    height: 0.8040201
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
