@@ -138,4 +138,11 @@ public class GameManager : MonoSingleton<GameManager>
         StopTimer();
         SceneManager.LoadScene(gameOverSceneName);
     }
+    
+    public void WinGame()
+    {
+        Debug.Log("Player won the game! Loading Win Scene...");
+        SceneManager.LoadScene("WinScene");
+    }
+
 }

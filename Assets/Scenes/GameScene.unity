@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2
       objectReference: {fileID: 0}
+    - target: {fileID: 976918922591579245, guid: 91171b48446ad8a428cc25b3c2451c91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3608068920278220440, guid: 91171b48446ad8a428cc25b3c2451c91, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.312498
@@ -268,8 +272,6 @@ GameObject:
   - component: {fileID: 201713807}
   - component: {fileID: 201713806}
   - component: {fileID: 201713805}
-  - component: {fileID: 201713810}
-  - component: {fileID: 201713809}
   m_Layer: 14
   m_Name: DoorTilemap
   m_TagString: Teleporters
@@ -470,78 +472,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!66 &201713809
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201713803}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 201713803}
---- !u!50 &201713810
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201713803}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &243500879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4245,6 +4175,7 @@ GameObject:
   - component: {fileID: 424764056}
   - component: {fileID: 424764063}
   - component: {fileID: 424764062}
+  - component: {fileID: 424764064}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -4458,6 +4389,20 @@ MonoBehaviour:
   explosionRadius: 1
   bricksOnTilemap: {fileID: 1317043939}
   bricksPrefab: {fileID: 3466972700881187141, guid: db9458340d519604bb41a4fd0ec02d57, type: 3}
+--- !u!114 &424764064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424764055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c374774206d4241a30965174cb4409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorTilemap: {fileID: 201713808}
+  gameManager: {fileID: 1513790300}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,10 +4503,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.27360988
+    y: 0.098662205
+    width: 0.45189762
+    height: 0.8026756
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -4951,6 +4896,10 @@ PrefabInstance:
     - target: {fileID: 976918922591579245, guid: 91171b48446ad8a428cc25b3c2451c91, type: 3}
       propertyPath: m_Name
       value: Enemy3
+      objectReference: {fileID: 0}
+    - target: {fileID: 976918922591579245, guid: 91171b48446ad8a428cc25b3c2451c91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3608068920278220440, guid: 91171b48446ad8a428cc25b3c2451c91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8119,6 +8068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy4
       objectReference: {fileID: 0}
+    - target: {fileID: 976918922591579245, guid: 91171b48446ad8a428cc25b3c2451c91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3608068920278220440, guid: 91171b48446ad8a428cc25b3c2451c91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.727503
@@ -8576,6 +8529,10 @@ PrefabInstance:
     - target: {fileID: 976918922591579245, guid: 91171b48446ad8a428cc25b3c2451c91, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 976918922591579245, guid: 91171b48446ad8a428cc25b3c2451c91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3608068920278220440, guid: 91171b48446ad8a428cc25b3c2451c91, type: 3}
       propertyPath: m_LocalPosition.x
