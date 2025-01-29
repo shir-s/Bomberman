@@ -8,6 +8,7 @@ public class SceneStage : MonoBehaviour
     [SerializeField] private int sceneIndex;
     [SerializeField] private AudioClip sceneAudio; // קליפ הסאונד שיתנגן
     private AudioSource audioSource;
+    private bool isTransitioning = false;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class SceneStage : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log($"SceneStage loaded, waiting {sceneTime} seconds before transition.");
         // הפעלת הסאונד כאשר הסצנה מתחילה
         if (sceneAudio != null)
         {
@@ -41,6 +43,8 @@ public class SceneStage : MonoBehaviour
 
     private IEnumerator LoadScene()
     {
+        if (isTransitioning) yield break;
+        isTransitioning = true;
         yield return new WaitForSeconds(sceneTime);
 
         // עצירת הסאונד לפני מעבר לסצנה הבאה
@@ -48,7 +52,7 @@ public class SceneStage : MonoBehaviour
         {
             audioSource.Stop();
         }
-
+        Debug.Log("Transitioning to next scene...");
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
     }
     

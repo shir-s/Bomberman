@@ -92,23 +92,10 @@ public class GameManager : MonoSingleton<GameManager>
             EndGame();
         }
     }
-
-    // private void TransitionToStageScene() !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // {
-    //     StopTimer();
-    //     SceneManager.LoadScene(stageSceneName);
-    //     StartCoroutine(WaitBeforeTransitionToStageScene());
-    // }
-    //
-    // private System.Collections.IEnumerator WaitBeforeTransitionToStageScene()
-    // {
-    //     yield return new WaitForSeconds(2f); // המתנה ל-2 שניות
-    //     RestartGame();
-    // }
     
     private void TransitionToStageScene()
     {
-        StopTimer(); // עצור את הטיימר לפני המעבר
+        StopTimer();
         StartCoroutine(WaitBeforeTransitionToStageScene()); // הפעל את הקורוטינה
     }
 
@@ -122,7 +109,8 @@ public class GameManager : MonoSingleton<GameManager>
     private System.Collections.IEnumerator WaitForStageSceneLoad()
     {
         yield return new WaitUntil(() => SceneManager.GetActiveScene().name == stageSceneName);
-        Debug.Log("StageScene loaded. Restarting the game...");
+        Debug.Log("StageScene loaded. Waiting for 3 seconds...");
+        yield return new WaitForSeconds(3f);
         RestartGame(); // קריאה לפונקציית האתחול
     }
     
