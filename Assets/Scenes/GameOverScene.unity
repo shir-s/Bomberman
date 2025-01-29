@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 119776306}
   - component: {fileID: 119776305}
   - component: {fileID: 119776304}
+  - component: {fileID: 119776308}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -221,6 +222,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &119776308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119776303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60afe3653b2590469580202bbac7ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneIndex: 0
 --- !u!1 &526853280
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,10 +436,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.73433363
-    y: 0.12138729
-    width: 0.22594881
-    height: 0.46242777
+    x: 0.6997477
+    y: 0.10714286
+    width: 0.21530698
+    height: 0.45112783
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
