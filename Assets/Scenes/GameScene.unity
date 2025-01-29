@@ -4416,8 +4416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00299b47ce200a44dbcc06fc2783e55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterA: {fileID: 0}
-  teleporterB: {fileID: 0}
+  teleporterA: {fileID: 1339965179}
+  teleporterB: {fileID: 1853307453}
   teleportKey: 122
   playerTag: Player
 --- !u!1 &519420028
