@@ -10,6 +10,7 @@ public class RestartGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(sceneIndex);
+            GameManager.Instance.RestartFullGame();
         }
         
     }

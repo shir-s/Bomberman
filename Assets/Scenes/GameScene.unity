@@ -806,7 +806,7 @@ MonoBehaviour:
   footstepVertical: {fileID: 8300000, guid: ea27ed5c10bde40419f183fa156e155f, type: 3}
   placementBomb: {fileID: 8300000, guid: 2e66b95451fc7fc4d8b61fd52a791622, type: 3}
   deathSound: {fileID: 8300000, guid: c0261ded1f35de040b25d97f86eb866b, type: 3}
-  explosionSound: {fileID: 0}
+  explosionSound: {fileID: 8300000, guid: c3ca68879defe0945a278048f6b9d848, type: 3}
 --- !u!4 &374758958
 Transform:
   m_ObjectHideFlags: 0
@@ -4176,6 +4176,7 @@ GameObject:
   - component: {fileID: 424764063}
   - component: {fileID: 424764062}
   - component: {fileID: 424764064}
+  - component: {fileID: 424764065}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -4403,6 +4404,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorTilemap: {fileID: 201713808}
   gameManager: {fileID: 1513790300}
+--- !u!114 &424764065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424764055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00299b47ce200a44dbcc06fc2783e55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleporterA: {fileID: 0}
+  teleporterB: {fileID: 0}
+  teleportKey: 122
+  playerTag: Player
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,10 +4520,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.27360988
-    y: 0.098662205
-    width: 0.45189762
-    height: 0.8026756
+    x: 0.6997477
+    y: 0.10714286
+    width: 0.21530698
+    height: 0.45112783
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

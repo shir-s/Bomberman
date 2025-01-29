@@ -144,5 +144,41 @@ public class GameManager : MonoSingleton<GameManager>
         Debug.Log("Player won the game! Loading Win Scene...");
         SceneManager.LoadScene("WinScene");
     }
+    
+    public void RestartFullGame()
+    {
+        Debug.Log("Restarting full game...");
+        StopTimer();
+
+        // איפוס הערכים למשחק חדש
+        score = 0;
+        livesRemaining = 3;
+        timeRemaining = 200;
+
+        // מעבר לסצנה OpenScene
+        SceneManager.LoadScene("OpenScene");
+
+        // מאתחל את ה-UI מחדש רק ברגע שנכנסים ל-GameScene
+        StartCoroutine(WaitForGameSceneLoad());
+    }
+
+    private System.Collections.IEnumerator WaitForGameSceneLoad()
+    {
+        // מחכה לטעינת GameScene
+        yield return new WaitUntil(() => SceneManager.GetActiveScene().name == "GameScene");
+
+        Debug.Log("GameScene loaded. Initializing UI and timer...");
+
+        // בדוק אם UIManager קיים ורק אז עדכן
+        UIManager.Instance.AssignUIComponents();
+        UIManager.Instance.UpdateTimeText(timeRemaining);
+        UIManager.Instance.UpdateLivesText(livesRemaining);
+        UIManager.Instance.UpdateScoreText(score);
+
+        StartTimer(); // התחלת הטיימר מחדש
+    }
+
+
+    
 
 }
