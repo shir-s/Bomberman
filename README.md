@@ -1,4 +1,9 @@
+
 # Bomberman
+
+<p align="center">
+  <img src="logo.png" alt="Game Logo" width="150"/>
+</p>
 
 A recreation of the classic Bomberman game, originally released in **1983**, developed as a solo final project for the *"Unity A"* course at Bezalel Academy of Arts and Design.
 
